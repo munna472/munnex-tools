@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: php-telegram-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /?health=1
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_CHAT_ID
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false

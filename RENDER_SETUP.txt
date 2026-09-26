@@ -1,0 +1,34 @@
+RENDER PHP TELEGRAM BOT — SETUP
+
+Files:
+- bot.php
+- Dockerfile
+- render.yaml
+
+Render:
+1. Put these files in a GitHub repository.
+2. Render -> New -> Web Service -> connect the repository.
+3. Runtime: Docker.
+4. Add environment variables:
+   BOT_TOKEN = your Telegram bot token
+   ADMIN_CHAT_ID = your private Telegram chat/user ID
+   ADMIN_IDS = same admin user ID (comma-separated if needed)
+   DB_HOST = MySQL host
+   DB_NAME = MySQL database name
+   DB_USER = MySQL username
+   DB_PASS = MySQL password
+5. Deploy.
+6. Open the Render service URL once. The bot automatically checks/sets its Telegram webhook.
+7. Send /start to the bot.
+
+Admin features:
+- New-user notification to ADMIN_CHAT_ID.
+- Admin-only user list.
+- Ban / unblock buttons.
+- /ban USER_ID and /unban USER_ID commands.
+- Only the configured ADMIN_CHAT_ID can use the admin controls.
+
+Important:
+- The bot token is intentionally NOT stored in bot.php or render.yaml.
+- Keep BOT_TOKEN only in Render Environment Variables.
+- If a bot token was publicly shared, regenerate it with BotFather after testing.
